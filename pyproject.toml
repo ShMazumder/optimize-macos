@@ -1,11 +1,18 @@
 [project]
 name = "mac-opt"
 version = "0.1.0"
-description = "Add your description here"
+description = "Modern Terminal User Interface (TUI) for auditing and optimizing macOS storage"
 readme = "README.md"
-requires-python = ">=3.14"
+authors = [
+    { name = "Shazzad Hossain Mazumder", email = "shmazumder23@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.10"
 dependencies = [
     "psutil>=5.9.0",
     "rich>=13.0.0",
     "textual>=0.80.0",
 ]
+
+[project.scripts]
+mac-opt = "mac_opt.app:main"

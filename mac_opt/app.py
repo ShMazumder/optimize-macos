@@ -1,4 +1,6 @@
 import os
+import sys
+import argparse
 from typing import List, Dict
 from textual.app import App, ComposeResult
 from textual.containers import Vertical, Horizontal
@@ -15,6 +17,7 @@ from textual.widgets import (
 from textual.binding import Binding
 from textual.widgets.selection_list import Selection
 
+from mac_opt import __version__
 from mac_opt.models import CleanableItem, CleanableCategory, RiskLevel, format_bytes
 from mac_opt.scanners.system import get_disk_stats
 from mac_opt.scanners.caches import scan_quick_caches
@@ -31,7 +34,7 @@ class MacStorageOptimizerApp(App):
     """Modern macOS Storage Optimizer Terminal UI."""
 
     CSS_PATH = "styles.tcss"
-    TITLE = "mac-opt 🚀 macOS Storage Optimizer"
+    TITLE = f"mac-opt 🚀 macOS Storage Optimizer (v{__version__})"
 
     BINDINGS = [
         Binding("a", "select_all_safe", "Select Safe", show=True),
@@ -52,7 +55,7 @@ class MacStorageOptimizerApp(App):
 
     def compose(self) -> ComposeResult:
         with Vertical(id="header_container"):
-            yield Static("🚀 [bold #38bdf8]mac-opt[/bold #38bdf8] — [dim]macOS Storage Audit & Optimizer[/dim]", id="header_title")
+            yield Static(f"🚀 [bold #38bdf8]mac-opt[/bold #38bdf8] [bold dim]v{__version__}[/bold dim] — [dim]macOS Storage Audit & Optimizer[/dim]", id="header_title")
             yield DiskGaugeWidget(self.disk_stats, id="disk_gauge")
 
         with TabbedContent(id="tabs"):
@@ -222,6 +225,18 @@ class MacStorageOptimizerApp(App):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        prog="mac-opt",
+        description="mac-opt: Modern macOS Storage Audit & Optimizer TUI",
+    )
+    parser.add_argument(
+        "-v", "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
+        help="Show program's version number and exit",
+    )
+    args = parser.parse_args()
+
     app = MacStorageOptimizerApp()
     app.run()
 
