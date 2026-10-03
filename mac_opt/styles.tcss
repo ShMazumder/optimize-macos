@@ -1,0 +1,98 @@
+Screen {
+    background: #0f141c;
+    color: #e2e8f0;
+}
+
+#header_container {
+    height: auto;
+    padding: 1 2;
+    background: #182232;
+    border-bottom: heavy #38bdf8;
+}
+
+#header_title {
+    text-style: bold;
+    color: #38bdf8;
+    margin-bottom: 1;
+}
+
+DiskGaugeWidget {
+    height: auto;
+    margin-bottom: 1;
+}
+
+TabbedContent {
+    height: 1fr;
+    margin: 1 1 0 1;
+}
+
+Tabs {
+    background: #1e293b;
+    color: #94a3b8;
+}
+
+Tab {
+    padding: 1 2;
+}
+
+Tab.-active {
+    background: #0284c7;
+    color: #ffffff;
+    text-style: bold;
+}
+
+SelectionList {
+    background: #0f172a;
+    border: solid #334155;
+    padding: 1;
+    height: 1fr;
+}
+
+SelectionList:focus {
+    border: solid #38bdf8;
+}
+
+#footer_summary {
+    height: 3;
+    background: #1e293b;
+    border-top: heavy #38bdf8;
+    padding: 0 2;
+    content-align: center middle;
+}
+
+#status_message {
+    height: 3;
+    padding: 0 2;
+    background: #1e293b;
+    color: #38bdf8;
+    content-align: left middle;
+}
+
+/* Modal styles */
+ConfirmCleanModal {
+    align: center middle;
+    background: rgba(15, 23, 42, 0.85);
+}
+
+#modal_dialog {
+    width: 65%;
+    max-width: 90;
+    height: auto;
+    max-height: 85%;
+    background: #1e293b;
+    border: heavy #38bdf8;
+    padding: 2;
+}
+
+#modal_content {
+    margin-bottom: 2;
+}
+
+#modal_buttons {
+    height: 3;
+    align: right middle;
+}
+
+#modal_buttons Button {
+    margin-left: 2;
+}
